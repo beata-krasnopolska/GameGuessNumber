@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GuessNumber
 {
@@ -10,17 +6,16 @@ namespace GuessNumber
     {
         static void Main(string[] args)
         {
-            //Ex 3 program generates a random number between 1 and 10, asks the user to guess the random nuber and than display the random number and a message indictaing whether the user's guess was to low, too high or correct
-
-
             Random randomGenerator = new Random();
-            int randomNumber = randomGenerator.Next(1, 10);
+            
             string answer;
             int userNumber;
-            int amountOfGuesses = 0;
 
             do
             {
+                int randomNumber = randomGenerator.Next(1, 10);
+                int amountOfGuesses = 0;
+
                 do {
                     Console.WriteLine("Guess the number between 1 and 10");
                     userNumber = int.Parse(Console.ReadLine());
@@ -38,13 +33,17 @@ namespace GuessNumber
                         Console.WriteLine("Correct!!");
                         Console.WriteLine("My number: {0}", randomNumber);
                     }
+
                     amountOfGuesses++;
+
                 } while (userNumber != randomNumber);
 
+                Console.Clear();
                 Console.WriteLine("You guessed {0} times", amountOfGuesses);
                 Console.WriteLine("Would you like to play again? :) Press \"T\" to start over or any other sign to quit");
                 answer = Console.ReadLine();
-            } while (answer =="T");
+            } while (answer == "T");
+
             Console.ReadKey();
         }
     }
