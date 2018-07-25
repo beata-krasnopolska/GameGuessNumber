@@ -11,7 +11,6 @@ namespace GuessNumber
 
             do
             {
-                int randomNumber = randomGenerator.Next(1, 10);
                 int amountOfGuesses = 0;
 
                 Random randomGenerator = new Random();
