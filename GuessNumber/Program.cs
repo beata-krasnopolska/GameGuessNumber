@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GuessNumber
 {
@@ -12,10 +8,12 @@ namespace GuessNumber
         {
             string answer;
             int userNumber;
-            int amountOfGuesses = 0;
 
             do
             {
+                int randomNumber = randomGenerator.Next(1, 10);
+                int amountOfGuesses = 0;
+
                 Random randomGenerator = new Random();
                 int randomNumber = randomGenerator.Next(1, 10);
                 do {
@@ -37,11 +35,13 @@ namespace GuessNumber
                     }
                     amountOfGuesses++;
                 } while (userNumber != randomNumber);
-                
+
+                Console.Clear();
                 Console.WriteLine("You guessed {0} times", amountOfGuesses);
                 Console.WriteLine("Would you like to play again? :) Press \"T\" to start over or any other sign to quit");
                 answer = Console.ReadLine();
-            } while (answer =="T");
+            } while (answer == "T");
+
             Console.ReadKey();
         }
     }
